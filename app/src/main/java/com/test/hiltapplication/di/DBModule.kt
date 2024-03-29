@@ -20,7 +20,7 @@ import javax.inject.Singleton
 object DBModule {
 
     @Singleton
-    @Provides
+    @Provides // declares scoped singleton
     fun provideAppDatabase(@ApplicationContext context: Context): ImageDatabase {
         return Room.databaseBuilder(
             context,
