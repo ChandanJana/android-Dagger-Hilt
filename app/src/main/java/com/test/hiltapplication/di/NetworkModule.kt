@@ -23,7 +23,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
 
-    @Singleton
+    @Singleton // declares scoped singleton
     @Provides
     fun provideHttpClient(): OkHttpClient {
         return OkHttpClient
@@ -33,12 +33,12 @@ object NetworkModule {
             .build()
     }
 
-    @Singleton
+    @Singleton // declares scoped singleton
     @Provides
     fun provideConverterFactory(): GsonConverterFactory =
         GsonConverterFactory.create()
 
-    @Singleton
+    @Singleton // declares scoped singleton
     @Provides
     fun provideRetrofit(
         okHttpClient: OkHttpClient,
@@ -51,7 +51,7 @@ object NetworkModule {
             .build()
     }
 
-    @Singleton
+    @Singleton // declares scoped singleton
     @Provides
     fun provideCurrencyService(retrofit: Retrofit): DogService =
         retrofit.create(DogService::class.java)
